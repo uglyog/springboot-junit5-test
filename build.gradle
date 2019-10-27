@@ -1,0 +1,32 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'au.com.dius:pact-jvm-provider-gradle:4.0.2'
+    }
+}
+
+plugins {
+  id 'java'
+}
+
+apply plugin: 'au.com.dius.pact'
+
+group 'com.github.uglyog'
+version '0.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+  jcenter()
+}
+
+dependencies {
+  testCompile 'au.com.dius:pact-jvm-provider-junit5:4.0.2'
+  testCompile 'au.com.dius:pact-jvm-provider-spring:4.0.2'
+}
