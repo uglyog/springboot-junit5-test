@@ -5,7 +5,8 @@ buildscript {
     }
 
     dependencies {
-        classpath 'au.com.dius:pact-jvm-provider-gradle:4.0.2'
+      classpath 'au.com.dius:pact-jvm-provider-gradle:4.0.2'
+      classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.2.0.RELEASE'
     }
 }
 
@@ -14,6 +15,8 @@ plugins {
 }
 
 apply plugin: 'au.com.dius.pact'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 
 group 'com.github.uglyog'
 version '0.0.0'
@@ -27,6 +30,23 @@ repositories {
 }
 
 dependencies {
+  compile 'org.springframework.boot:spring-boot-starter-web'
+
   testCompile 'au.com.dius:pact-jvm-provider-junit5:4.0.2'
   testCompile 'au.com.dius:pact-jvm-provider-spring:4.0.2'
+  testCompile 'org.springframework.boot:spring-boot-starter-test'
+  testCompile 'org.junit.jupiter:junit-jupiter-api:5.5.2'
+  testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.5.2'
+  testCompile 'ch.qos.logback:logback-core:1.2.3', 'ch.qos.logback:logback-classic:1.2.3'
+}
+
+bootJar {
+  baseName = 'springboot-junit5-test'
+  version =  '0.0.0'
+}
+
+test {
+  useJUnitPlatform()
+
+  //  systemProperties['pact.verifier.publishResults'] = 'true'
 }
