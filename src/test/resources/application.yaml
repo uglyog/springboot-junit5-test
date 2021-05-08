@@ -1,0 +1,11 @@
+logging:
+  level:
+    root: warn
+    au:
+      com:
+        dius:
+          pact: DEBUG
+    org:
+      apache:
+        http: DEBUG
+

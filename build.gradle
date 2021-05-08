@@ -1,17 +1,7 @@
-buildscript {
-    repositories {
-        mavenLocal()
-        mavenCentral()
-    }
-
-    dependencies {
-      classpath 'au.com.dius:pact-jvm-provider-gradle:4.0.2'
-      classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.2.0.RELEASE'
-    }
-}
-
 plugins {
   id 'java'
+  id "org.springframework.boot" version "2.4.5"
+  id "au.com.dius.pact" version "4.2.4"
 }
 
 apply plugin: 'au.com.dius.pact'
@@ -21,32 +11,21 @@ apply plugin: 'io.spring.dependency-management'
 group 'com.github.uglyog'
 version '0.0.0'
 
-sourceCompatibility = 1.8
-
 repositories {
   mavenLocal()
   mavenCentral()
-  jcenter()
 }
 
 dependencies {
-  compile 'org.springframework.boot:spring-boot-starter-web'
+  implementation 'org.springframework.boot:spring-boot-starter-web'
 
-  testCompile 'au.com.dius:pact-jvm-provider-junit5:4.0.2'
-  testCompile 'au.com.dius:pact-jvm-provider-spring:4.0.2'
-  testCompile 'org.springframework.boot:spring-boot-starter-test'
-  testCompile 'org.junit.jupiter:junit-jupiter-api:5.5.2'
+  testImplementation 'au.com.dius.pact.provider:junit5spring:4.2.4'
+  testImplementation 'org.springframework.boot:spring-boot-starter-test'
+  testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'
   testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.5.2'
-  testCompile 'ch.qos.logback:logback-core:1.2.3', 'ch.qos.logback:logback-classic:1.2.3'
-}
-
-bootJar {
-  baseName = 'springboot-junit5-test'
-  version =  '0.0.0'
+  testImplementation 'ch.qos.logback:logback-core:1.2.3', 'ch.qos.logback:logback-classic:1.2.3'
 }
 
 test {
   useJUnitPlatform()
-
-  //  systemProperties['pact.verifier.publishResults'] = 'true'
 }
