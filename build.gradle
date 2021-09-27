@@ -1,7 +1,7 @@
 plugins {
   id 'java'
   id "org.springframework.boot" version "2.4.5"
-  id "au.com.dius.pact" version "4.2.4"
+  id "au.com.dius.pact" version "4.2.12"
 }
 
 apply plugin: 'au.com.dius.pact'
@@ -19,7 +19,7 @@ repositories {
 dependencies {
   implementation 'org.springframework.boot:spring-boot-starter-web'
 
-  testImplementation 'au.com.dius.pact.provider:junit5spring:4.2.4'
+  testImplementation 'au.com.dius.pact.provider:junit5spring:4.2.12'
   testImplementation 'org.springframework.boot:spring-boot-starter-test'
   testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'
   testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.5.2'

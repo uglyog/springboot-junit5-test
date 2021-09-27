@@ -1,6 +1,6 @@
 logging:
   level:
-    root: warn
+    root: WARN
     au:
       com:
         dius:
@@ -9,3 +9,8 @@ logging:
       apache:
         http: DEBUG
 
+pactbroker:
+  url: https://test.pact.dius.com.au
+  auth:
+    username: dXfltyFMgNOFZAxr8io9wJ37iUpY42M
+    password: O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1
